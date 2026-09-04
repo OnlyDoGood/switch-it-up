@@ -12,7 +12,7 @@ export const plans = [
   {
     id: 'single-session',
     name: 'Single session',
-    price: 15000,
+    price: 5000,
     billing: 'per 60-minute session',
     description: 'A focused workout for a clear goal, technique check, or fresh start.',
     features: ['Goal and movement check-in', 'Personalised session plan', 'Post-session next steps'],
@@ -20,7 +20,7 @@ export const plans = [
   {
     id: 'foundation',
     name: 'Foundation',
-    price: 48000,
+    price: 18000,
     billing: '4 sessions / month',
     description: 'A consistent weekly rhythm for building strength, mobility, and accountability.',
     features: ['4 coached sessions', 'Weekly progress check-in', 'Simple plan between sessions'],
@@ -29,14 +29,14 @@ export const plans = [
   {
     id: 'progress',
     name: 'Progress',
-    price: 88000,
+    price: 36000,
     billing: '8 sessions / month',
     description: 'Twice-weekly coaching for clients ready to make measurable progress.',
     features: ['8 coached sessions', 'Priority scheduling', 'Training plan adjustments'],
   },
 ]
 
-export const homeServiceFee = 5000
+export const homeServiceFee = 10000
 
 export function getPlan(planId) {
   return plans.find((plan) => plan.id === planId) || plans[0]

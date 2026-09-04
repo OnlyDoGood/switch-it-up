@@ -8,12 +8,12 @@ const routineSamples = [
     routine: ['Warm-up and movement check', 'Goal-focused strength block', 'Conditioning finisher', 'Cool-down and progress notes'],
   },
   {
-    title: 'Strength Session',
+    title: 'Strength Training',
     focus: 'Build full-body strength and control',
     routine: ['Dynamic warm-up', 'Squat or hinge technique', 'Upper-body push and pull', 'Core stability finisher'],
   },
   {
-    title: 'Mobility Session',
+    title: 'Mobility Training',
     focus: 'Move with more freedom and confidence',
     routine: ['Breathing and joint preparation', 'Hips and ankle mobility', 'Shoulder and spine flow', 'Recovery stretches'],
   },
