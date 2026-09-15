@@ -1,9 +1,9 @@
 :root {
-  font-family: Inter, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Manrope', Inter, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #f5f5f5;
-  background-color: #000000;
+  background-color: #0d0b12;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

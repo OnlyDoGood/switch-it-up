@@ -1,7 +1,7 @@
 import { formatPrice } from './bookingUtils'
 
 export const businessBrand = {
-  name: 'WorkItOut Studio',
+  name: 'Switch It Up',
   email: 'desmondodogwu306@gmail.com',
   phone: '08124289212',
   tagline: 'Strength, structure, and accountability for every client.',

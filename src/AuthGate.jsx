@@ -98,7 +98,7 @@ function AuthGate({ children, onAuthStateChanged }) {
     return (
       <div className="dashboard-shell auth-shell">
         <div className="auth-card">
-          <h1>Welcome to WorkItOut Studio</h1>
+          <h1>Welcome to Switch it Up</h1>
           <p>Sign in or create an account to book sessions.</p>
           <div className="toggle-row auth-toggle">
             <button type="button" className={mode === 'login' ? 'primary-btn' : 'secondary-link'} onClick={() => setMode('login')}>

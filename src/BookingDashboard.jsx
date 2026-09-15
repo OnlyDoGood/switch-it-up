@@ -49,6 +49,8 @@ function BookingDashboard({ onBack, user, theme }) {
   const [notes, setNotes] = useState('')
   const [confirmation, setConfirmation] = useState('')
 
+  const selectedPlan = plans.find((plan) => plan.id === planId) || plans[1]
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -60,8 +62,8 @@ function BookingDashboard({ onBack, user, theme }) {
       slot,
       sessionType,
       planId,
-      planName: plans.find((plan) => plan.id === planId).name,
-      price: plans.find((plan) => plan.id === planId).price,
+      planName: selectedPlan.name,
+      price: selectedPlan.price,
       homeService: false,
       notes,
       status: 'pending',
@@ -80,7 +82,7 @@ function BookingDashboard({ onBack, user, theme }) {
     <div className={`dashboard-shell theme-${theme}`}>
       <div className="sessions-header">
         <div>
-          <p className="eyebrow">WorkItOut training library</p>
+          <p className="eyebrow">Switch it Up training library</p>
           <h1>Sessions</h1>
           <p>Explore a sample of what you can expect in each training session.</p>
         </div>

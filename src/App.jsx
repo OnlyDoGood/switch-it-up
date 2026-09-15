@@ -38,7 +38,7 @@ function ThemePicker({ theme, onChange }) {
 function AppContent({ user }) {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedSlot, setSelectedSlot] = useState(slots[0].value)
-  const [selectedSessionType, setSelectedSessionType] = useState(getSessionOptions()[0]?.value || 'personal-training')
+  const [selectedSessionType, setSelectedSessionType] = useState('personal-training')
   const [selectedPlanId, setSelectedPlanId] = useState(plans[1].id)
   const [homeService, setHomeService] = useState(false)
   const [name, setName] = useState('')
@@ -52,7 +52,7 @@ function AppContent({ user }) {
   const [theme, setTheme] = useState('mono')
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const sessionOptions = useMemo(() => getSessionOptions(), [])
+  const sessionOptions = getSessionOptions()
 
   const monthDate = useMemo(() => {
     const date = new Date()
@@ -148,7 +148,7 @@ function AppContent({ user }) {
     <div className={`page-shell theme-${theme}`}>
       <header className="hero-section">
         <nav className="topbar">
-          <div className="brand">WorkItOut Studio</div>
+          <div className="brand" aria-label="Switch It Up">Switch It Up</div>
           <button
             type="button"
             className="menu-toggle"
@@ -381,7 +381,7 @@ function AppContent({ user }) {
 
       <footer className="site-footer">
         <div className="footer-brand">
-          <strong>WorkItOut Studio</strong>
+          <strong>Switch it Up</strong>
           <p>Personal training built around your goals.</p>
         </div>
         <div className="footer-details">

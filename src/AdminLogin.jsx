@@ -21,7 +21,7 @@ function AdminLogin({ onLogin }) {
     <div className="dashboard-shell auth-shell">
       <div className="auth-card">
         <h1>Admin login</h1>
-        <p>Access the booking dashboard for WorkItOut Studio.</p>
+        <p>Access the booking dashboard for Switch it Up.</p>
         <form onSubmit={handleSubmit} className="booking-form">
           <div className="field-group">
             <label className="field-title" htmlFor="username">Email or phone</label>

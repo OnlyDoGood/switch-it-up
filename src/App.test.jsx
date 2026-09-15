@@ -36,8 +36,8 @@ describe('booking utilities', () => {
   it('provides sustainable plan pricing and formats totals', () => {
     const foundation = getPlan('foundation')
 
-    expect(foundation.price).toBe(48000)
-    expect(formatPrice(foundation.price + homeServiceFee)).toBe('₦53,000')
+    expect(foundation.price).toBe(18000)
+    expect(formatPrice(foundation.price + homeServiceFee)).toBe('₦28,000')
     expect(getPlan('missing').id).toBe('single-session')
   })
 })

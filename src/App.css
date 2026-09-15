@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
 .page-shell {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #3a3a3a 0%, #111111 45%, #000000 100%);
+  background: radial-gradient(circle at top left, rgba(244, 176, 89, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(92, 130, 255, 0.16), transparent 22%),
+    linear-gradient(135deg, #120f18 0%, #1b1625 35%, #0d0b12 100%);
   color: #f5f5f5;
 }
 
@@ -26,7 +30,14 @@
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
 }
 
-.brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.04em; color: #ffffff; white-space: nowrap; }
+.brand {
+  font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  white-space: nowrap;
+}
 .topbar a, .link-button { color: #d0d0d0; text-decoration: none; font-family: 'Trebuchet MS', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; border: none; cursor: pointer; }
 .topbar a:hover, .topbar a:focus-visible, .link-button:hover, .link-button:focus-visible { color: #ffffff; }
 .nav-links { display: flex; gap: 4px; align-items: center; }
@@ -36,11 +47,21 @@
 .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1120px; margin: 0 auto; align-items: center; }
 
 .eyebrow { display: inline-block; margin-bottom: 12px; padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; color: #ffffff; }
-.hero-copy h1 { font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.1; margin-bottom: 14px; color: #ffffff; }
+.hero-copy h1 {
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.06;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
 .hero-copy p { font-size: 1.02rem; line-height: 1.7; color: #d0d0d0; max-width: 700px; }
 .hero-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 .primary-btn, .secondary-link { border-radius: 999px; padding: 10px 16px; font-weight: 700; text-decoration: none; }
-.primary-btn { background: linear-gradient(90deg, #ffffff, #bdbdbd); color: #000000; }
+.primary-btn {
+  background: linear-gradient(135deg, #f4bf72 0%, #e7a75d 35%, #d97d4f 100%);
+  color: #1a0f0e;
+  box-shadow: 0 12px 22px rgba(217, 125, 79, 0.35);
+}
 .secondary-link { color: #f5f5f5; border: 1px solid rgba(255, 255, 255, 0.2); }
 
 .hero-card, .card { border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(0, 0, 0, 0.78); border-radius: 24px; padding: 24px; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25); }

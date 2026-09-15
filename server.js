@@ -9,6 +9,10 @@ import twilio from 'twilio'
 
 dotenv.config()
 
+const brandName = process.env.BRAND_NAME || 'Switch It Up'
+const ownerEmail = process.env.OWNER_EMAIL || 'desmondodogwu306@gmail.com'
+const ownerPhone = process.env.OWNER_PHONE || '+2348124289212'
+
 const app = express()
 const port = process.env.PORT || 3001
 const transport = process.env.SMTP_HOST
@@ -53,16 +57,16 @@ const sendClientNotifications = async (booking) => {
 
   if (transport && clientEmail) {
     await transport.sendMail({
-      from: process.env.SMTP_FROM || 'WorkItOut Studio <no-reply@example.com>',
+      from: process.env.SMTP_FROM || `${brandName} <no-reply@example.com>`,
       to: clientEmail,
       subject: `Your booking for ${booking.date} is confirmed`,
-      text: `Hello ${booking.name},\n\nYour ${booking.sessionType || 'session'} booking for ${booking.date} at ${booking.slot} has been confirmed.\n\nPlease reply to this email or contact the studio if you need to make changes.\n\nWorkItOut Studio\nEmail: ${process.env.OWNER_EMAIL || 'desmondodogwu306@gmail.com'}\nPhone: 08124289212`,
+      text: `Hello ${booking.name},\n\nYour ${booking.sessionType || 'session'} booking for ${booking.date} at ${booking.slot} has been confirmed.\n\nPlease reply to this email or contact the studio if you need to make changes.\n\n${brandName}\nEmail: ${ownerEmail}\nPhone: ${ownerPhone}`,
     })
   }
 
   if (twilioClient && clientPhone) {
     await twilioClient.messages.create({
-      body: `Your booking with WorkItOut Studio is confirmed for ${booking.date} at ${booking.slot}.`,
+      body: `Your booking with ${brandName} is confirmed for ${booking.date} at ${booking.slot}.`,
       from: process.env.TWILIO_FROM,
       to: clientPhone,
     })
@@ -86,27 +90,27 @@ app.post('/api/bookings', async (req, res) => {
 
   if (transport) {
     await transport.sendMail({
-      from: process.env.SMTP_FROM || 'WorkItOut Studio <no-reply@example.com>',
-      to: process.env.OWNER_EMAIL || 'desmondodogwu306@gmail.com',
+      from: process.env.SMTP_FROM || `${brandName} <no-reply@example.com>`,
+      to: ownerEmail,
       subject: `Your booking request for ${booking.date} has been received`,
-      text: `Hello ${booking.name},\n\nThank you for booking with WorkItOut Studio. We received your request for ${booking.date} at ${booking.slot}.\n\nHome service: ${booking.homeService ? 'Requested' : 'Not requested'}\nNotes: ${booking.notes || 'None'}\n\nWe will confirm your session shortly.\n\nWorkItOut Studio\nEmail: desmondodogwu306@gmail.com\nPhone: 08124289212\nStrength, structure, and accountability for every client.`,
+      text: `Hello ${booking.name},\n\nThank you for booking with ${brandName}. We received your request for ${booking.date} at ${booking.slot}.\n\nHome service: ${booking.homeService ? 'Requested' : 'Not requested'}\nNotes: ${booking.notes || 'None'}\n\nWe will confirm your session shortly.\n\n${brandName}\nEmail: ${ownerEmail}\nPhone: ${ownerPhone}\nStrength, structure, and accountability for every client.`,
     })
   }
 
   if (transport) {
     await transport.sendMail({
-      from: process.env.SMTP_FROM || 'WorkItOut Studio <no-reply@example.com>',
-      to: process.env.OWNER_EMAIL || 'desmondodogwu306@gmail.com',
+      from: process.env.SMTP_FROM || `${brandName} <no-reply@example.com>`,
+      to: ownerEmail,
       subject: `New booking request from ${booking.name}`,
-      text: `New booking received for WorkItOut Studio.\n\nClient: ${booking.name}\nPhone: ${booking.phone}\nDate: ${booking.date}\nSlot: ${booking.slot}\nHome service: ${booking.homeService ? 'Yes' : 'No'}\nNotes: ${booking.notes || 'None'}`,
+      text: `New booking received for ${brandName}.\n\nClient: ${booking.name}\nPhone: ${booking.phone}\nDate: ${booking.date}\nSlot: ${booking.slot}\nHome service: ${booking.homeService ? 'Yes' : 'No'}\nNotes: ${booking.notes || 'None'}`,
     })
   }
 
-  if (twilioClient && process.env.OWNER_PHONE) {
+  if (twilioClient && ownerPhone) {
     await twilioClient.messages.create({
-      body: `New booking request for WorkItOut Studio: ${booking.name} on ${booking.date} at ${booking.slot}. Contact: ${booking.phone}`,
+      body: `New booking request for ${brandName}: ${booking.name} on ${booking.date} at ${booking.slot}. Contact: ${booking.phone}`,
       from: process.env.TWILIO_FROM,
-      to: process.env.OWNER_PHONE,
+      to: ownerPhone,
     })
   }
 
